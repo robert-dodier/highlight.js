@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <link rel="stylesheet" title="Default" href="build/demo/styles/default.css">
+  </head>
+  <body>
+    <pre>
+      <code id="mycode" class="maxima">
+  /* example of a Maxima program */
+  
+  foo (x, y, z) := block ([bar : 1.2345b0, baz : -0.5432e0, quux : 9876543210, mumble : 123.456],
+    if bar &gt; 1 + baz
+      then atan2 (bar, baz) + log(quux)*exp(mumble)
+      elseif baz &lt;= 100!
+      then ['bar^2, 'baz/2, sqrt('quux)]
+      else '[true, false, unknown]);
+  
+  display2d : false $
+  foo(%pi, %e, bessel_j(1, u));
+  is (% &gt; 0);
+  (sin(1) - 1, 2*%%, 1 - %%);
+  print ("most recent output is", %);
+  
+  blurf[foo](a) := a^foo - foo^a $
+  blurf[2];
+  is (blurf[2] = lambda([a], a^2 - 2^a));
+  
+  blurf[%pi](%e) - matrix([%phi])^^2;
+      </code>
+    </pre>
+      
+    <script src="build/highlight.pack.js"></script>
+    <script>
+      function doit(){hljs.highlightBlock(document.getElementById("mycode"));}
+      window.onload = doit;
+    </script>
+  </body>
+</html>
